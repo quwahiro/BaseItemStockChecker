@@ -1,8 +1,10 @@
 # BASE ITEM STOCK CHECKER
 
 BASEで売り切れをメールで通知するアプリ
-最初に売り切れが発生すると、最初の一回だけ通知
+
+最初に売り切れが発生すると、DBに記録され、最初の一回だけ通知
 商品を補充すると、リセットされます。
+
 取得するタイミングはCRONを使用します。
 
 
@@ -14,7 +16,7 @@ BASEで売り切れをメールで通知するアプリ
 * sqlite3
 
 # Installation
-.env.sampleに環境設定を記入し、.envにリネームしてください。
+任意のエディターで.env.sampleに環境設定を記入し、.envにリネームしてください。
 
 ```
 $ pip install dotenv beautifulsoup dotenv sqlite3
@@ -26,7 +28,20 @@ $ python main.py
 ```
 
 # Usage
-CRONは24時間に1回,12時間に1回程度を推奨します。
+## テストする場合は、topページをtest.htmlとして保存し、main.pyを以下のようにしてください。
+
+```
+    filename = 'test.html'
+    with open(filename+'.html') as myfile:          
+         soup = BeautifulSoup(myfile, 'html.parser')
+    
+    #res = requests.get(os.environ['URL'])
+    #soup = BeautifulSoup(res.text, 'html.parser')
+
+```
+
+
+## CRONは24時間に1回,12時間に1回程度を推奨します。
 
 ```
 $ crontab -e

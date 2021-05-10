@@ -22,7 +22,7 @@ def main():
     item_info = []
     table= "ITEMS"
 
-    # local dev enviroment
+    ### local dev enviroment
     # filename = ''
     # with open(filename+'.html') as myfile:          
     #     soup = BeautifulSoup(myfile, 'html.parser')
