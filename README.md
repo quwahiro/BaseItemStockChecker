@@ -5,6 +5,7 @@ BASEで売り切れをメールで通知するアプリ
 商品を補充すると、リセットされます。
 取得するタイミングはCRONを使用します。
 
+
 # Requirement
 
 * python 3.*
@@ -13,11 +14,14 @@ BASEで売り切れをメールで通知するアプリ
 * sqlite3
 
 # Installation
+.env.sampleに環境設定を記入し、.envにリネームしてください。
 
 ```
 $ pip install dotenv beautifulsoup dotenv sqlite3
 $ git clone https://github.com/quwahiro/BaseItemStockChecker.git
 $ cd base_item_stock_checker
+$ vim .env.sample
+$ mv .env.sample .env
 $ python main.py
 ```
 
